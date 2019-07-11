@@ -7,10 +7,10 @@ import dominate
 from dominate.tags import *
 import os
 import sys
-if sys.version[0] == '2':
+if sys.version[0] == '3':
     from importlib import reload
-    reload(sys)
-    sys.setdefaultencoding('utf8')
+reload(sys)
+sys.setdefaultencoding('utf8')
 
 
 class HTML:
