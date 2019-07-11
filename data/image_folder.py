@@ -36,7 +36,7 @@ def make_dataset(dir):
             fname = fname.strip('._')
             print(root)
             if is_image_file(fname):
-                print('YesIsFIle')		
+                print('YesIsFIle')
                 path = os.path.join(root, fname)
                 print(path)
                 images.append(path)
@@ -99,9 +99,9 @@ class ImageFolder(data.Dataset):
         path = self.imgs[index]
         img = self.loader(path)
         if self.transform is not None:
-			img = self.transform(img)
-			if (self.font_trans):
-				img = font_transform(img,path, self.rgb)
+                img = self.transform(img)
+                if (self.font_trans):
+                        img = font_transform(img,path, self.rgb)
         if self.return_paths:
             return img, path
         else:
