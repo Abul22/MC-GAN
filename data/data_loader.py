@@ -274,12 +274,16 @@ class StackDataLoader(BaseDataLoader):
 	    # Dataset A
         print('eeeee')
 	print(opt.dataroot)
+	print('222')
 	print(opt)
+	print('333')
 	dataset_A = ImageFolder(root=opt.dataroot +'A/'+ opt.phase,
                               transform=transform, return_paths=True, rgb=opt.rgb_in,
                               fineSize=opt.fineSize, loadSize=opt.loadSize,
                             font_trans=True, no_permutation=opt.no_permutation)
+	print('444')
         print(dataset_A.imgs)
+	print('555')
 	len_A = len(dataset_A.imgs)
         shuffle_inds = np.random.permutation(len_A)
         
