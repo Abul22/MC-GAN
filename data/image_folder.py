@@ -30,8 +30,13 @@ def make_dataset(dir):
 
     for root, _, fnames in sorted(os.walk(dir)):
         for fname in fnames:
+            print(8888888)
+            print(fname)
+            print(root)
             if is_image_file(fname):
+                print('YesIsFIle')
                 path = os.path.join(root, fname)
+                print(path)
                 images.append(path)
 
     return images
