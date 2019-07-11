@@ -412,7 +412,9 @@ class StackGANModel(BaseModel):
         self.fake_B0.backward(pass_grad)
 
     def backward_G1(self,iter):
-
+        print('idk...backwardG..')
+        print(self)
+        print(iter)
         # First, G(A) should fake the discriminator
         if self.opt.conditional:
 
@@ -534,8 +536,8 @@ class StackGANModel(BaseModel):
             torch.zeros(b,c,m,n)
         
         #force cuz idk
-        torch.zeros(b,c,m,n)
-        print(torch.zeros(b,c,m,n))
+        #torch.zeros(b,c,m,n)
+        #print(torch.zeros(b,c,m,n))
         
         real_A_grad = self.real_A1_grad
         
