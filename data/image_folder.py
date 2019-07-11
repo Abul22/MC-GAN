@@ -32,9 +32,11 @@ def make_dataset(dir):
         for fname in fnames:
             print(8888888)
             print(fname)
+            print(fname.strip('._'))
+            fname = fname.strip('._')
             print(root)
             if is_image_file(fname):
-                print('YesIsFIle')
+                print('YesIsFIle')		
                 path = os.path.join(root, fname)
                 print(path)
                 images.append(path)
