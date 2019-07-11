@@ -7,6 +7,7 @@ import dominate
 from dominate.tags import *
 import os
 import sys
+from importlib import reload
 reload(sys)
 sys.setdefaultencoding('utf8')
 
