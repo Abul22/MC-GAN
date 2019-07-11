@@ -48,6 +48,8 @@ class BaseModel():
     def save_network(self, network, network_label, epoch_label, gpu_ids):
         save_filename = '%s_net_%s.pth' % (epoch_label, network_label)
         save_path = os.path.join(self.save_dir, save_filename)
+        print('Save network() in base_model.py ... Filename %s, Path %s' %
+              (save_filename, save_path))
         torch.save(network.cpu().state_dict(), save_path)
         if len(gpu_ids) and torch.cuda.is_available():
             network.cuda(gpu_ids[0]) #network.cuda(device_id=gpu_ids[0])
