@@ -99,7 +99,7 @@ class FlatData(object):
             else:
                 file_name = map(lambda x:x.split("/")[-1],AB_paths)
                 blank_ind = self.random_dict[file_name][0:int(self.blanks*A.size(3)/target_size)]
-		print('Data loader __next__ else_LN_1202-- filename: %s  ---- AB_paths %s' %
+                print('Data loader __next__ else_LN_1202-- filename: %s  ---- AB_paths %s' %
                     (file_name, AB_paths))
 
             blank_ind = np.tile(range(target_size), len(blank_ind)) + np.repeat(blank_ind*target_size,target_size)
@@ -163,7 +163,7 @@ class Data(object):
                 if len(file_name)>1:
                     raise Exception('batch size should be 1')
                 file_name=file_name[0]
-		print('Data loader __next__-- filename: %s' %
+                print('Data loader __next__-- filename: %s' %
                     (file_name))
                 blank_ind = self.random_dict[file_name][0:int(self.blanks*A.size(1)/n_rgb)]
 
@@ -177,9 +177,9 @@ class Data(object):
 class PartialData(object):
     def __init__(self, data_loader_A, data_loader_B, data_loader_base, fineSize, loadSize, max_dataset_size, phase, base_font=False, blanks=0):
         print('ffff')
-	print(data_loader_A)
-	print(data_loader_base)
-	self.data_loader_A = data_loader_A
+        print(data_loader_A)
+        print(data_loader_base)
+        self.data_loader_A = data_loader_A
         self.data_loader_B = data_loader_B
         self.data_loader_base = data_loader_base
         self.fineSize = fineSize
@@ -271,20 +271,20 @@ class StackDataLoader(BaseDataLoader):
             transforms.ToTensor(),
                                  ])
         dic_phase = {'train':'Train', 'test':'Test'}
-	    # Dataset A
+        # Dataset A
         print('eeeee')
-	print(opt.dataroot)
-	print('222')
-	print(opt)
-	print('333')
-	dataset_A = ImageFolder(root=opt.dataroot +'A/'+ opt.phase,
+        print(opt.dataroot)
+        print('222')
+        print(opt)
+        print('333')
+        dataset_A = ImageFolder(root=opt.dataroot +'A/'+ opt.phase,
                               transform=transform, return_paths=True, rgb=opt.rgb_in,
                               fineSize=opt.fineSize, loadSize=opt.loadSize,
                             font_trans=True, no_permutation=opt.no_permutation)
-	print('444')
+        print('444')
         print(dataset_A.imgs)
-	print('555')
-	len_A = len(dataset_A.imgs)
+        print('555')
+        len_A = len(dataset_A.imgs)
         shuffle_inds = np.random.permutation(len_A)
         
         dataset_B = ImageFolder(root=opt.dataroot  + 'B/'+ opt.phase,
