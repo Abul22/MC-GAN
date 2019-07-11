@@ -27,7 +27,7 @@ def is_image_file(filename):
 def make_dataset(dir):
     images = []
     assert os.path.isdir(dir), '%s is not a valid directory' % dir
-
+    print(dir)
     for root, _, fnames in sorted(os.walk(dir)):
         for fname in fnames:
             print(8888888)
