@@ -525,7 +525,14 @@ class StackGANModel(BaseModel):
 
         b,c,m,n = self.fake_B0.size()
 
-        fake_B0_grad = torch.zeros(b,c,m,n).cuda() if self.opt.gpu_ids else torch.zeros(b,c,m,n)
+        fake_B0_grad = torch.zeros(b,c,m,n).cuda()
+        if self.opt.gpu_ids:
+            print('ye got gpu')
+            print(self.opt.gpu_ids)
+        else: 
+            print('waselse in stackgan')
+            torch.zeros(b,c,m,n)
+        
         real_A_grad = self.real_A1_grad
         
         for batch in range(self.opt.input_nc):
