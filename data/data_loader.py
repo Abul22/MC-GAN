@@ -176,7 +176,9 @@ class Data(object):
 
 class PartialData(object):
     def __init__(self, data_loader_A, data_loader_B, data_loader_base, fineSize, loadSize, max_dataset_size, phase, base_font=False, blanks=0):
-        self.data_loader_A = data_loader_A
+        print(data_loader_A)
+	print(data_loader_base)
+	self.data_loader_A = data_loader_A
         self.data_loader_B = data_loader_B
         self.data_loader_base = data_loader_base
         self.fineSize = fineSize
@@ -214,9 +216,7 @@ class PartialData(object):
         self.iter += 1
         if self.iter > self.max_dataset_size:
             raise StopIteration
-        print(self.data_loader_iter_A)
-	print(A)
-	print(A_paths)
+
         A, A_paths = next(self.data_loader_iter_A)
         B, B_paths = next(self.data_loader_iter_B)
         
