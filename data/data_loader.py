@@ -176,7 +176,8 @@ class Data(object):
 
 class PartialData(object):
     def __init__(self, data_loader_A, data_loader_B, data_loader_base, fineSize, loadSize, max_dataset_size, phase, base_font=False, blanks=0):
-        print(data_loader_A)
+        print('ffff')
+	print(data_loader_A)
 	print(data_loader_base)
 	self.data_loader_A = data_loader_A
         self.data_loader_B = data_loader_B
@@ -271,11 +272,15 @@ class StackDataLoader(BaseDataLoader):
                                  ])
         dic_phase = {'train':'Train', 'test':'Test'}
 	    # Dataset A
-        dataset_A = ImageFolder(root=opt.dataroot +'A/'+ opt.phase,
+        print('eeeee')
+	print(opt.dataroot)
+	print(opt)
+	dataset_A = ImageFolder(root=opt.dataroot +'A/'+ opt.phase,
                               transform=transform, return_paths=True, rgb=opt.rgb_in,
                               fineSize=opt.fineSize, loadSize=opt.loadSize,
                             font_trans=True, no_permutation=opt.no_permutation)
-        len_A = len(dataset_A.imgs)
+        print(dataset_A.imgs)
+	len_A = len(dataset_A.imgs)
         shuffle_inds = np.random.permutation(len_A)
         
         dataset_B = ImageFolder(root=opt.dataroot  + 'B/'+ opt.phase,
