@@ -404,6 +404,22 @@ class StackGANModel(BaseModel):
             obs_ = torch.cuda.LongTensor(self.obs) if self.opt.gpu_ids else LongTensor(self.obs)
             weights.index_fill_(1,obs_,weight_val)
             weights=Variable(weights, requires_grad=False)
+            
+            
+            print('idkdddd.')
+            print('weights')
+            print(weights)
+            print('self.fake_B0')
+            print(self.fake_B0)
+            print('self.fake_B0_init.detach()')
+            print(self.fake_B0_init.detach())
+            
+            print('weights * self.fake_B0')
+            print(weights * self.fake_B0)
+            
+            print('weights * self.fake_B0_init.detach()')
+            print(weights * self.fake_B0_init.detach())
+            
 
             self.loss_G_L1 = self.criterionL1(weights * self.fake_B0, weights * self.fake_B0_init.detach()) * self.opt.lambda_C
      
@@ -412,9 +428,6 @@ class StackGANModel(BaseModel):
         self.fake_B0.backward(pass_grad)
 
     def backward_G1(self,iter):
-        print('idk...backwardG..')
-        print(self)
-        print(iter)
         # First, G(A) should fake the discriminator
         if self.opt.conditional:
 
