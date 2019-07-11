@@ -214,7 +214,7 @@ class PartialData(object):
         self.iter += 1
         if self.iter > self.max_dataset_size:
             raise StopIteration
-        print(data_loader_iter_A)
+        print(self.data_loader_iter_A)
 	print(A)
 	print(A_paths)
         A, A_paths = next(self.data_loader_iter_A)
