@@ -70,7 +70,11 @@ for epoch in range(1, opt.niter + opt.niter_decay + 1):
         print('saving the model at the end of epoch %d, iters %d' %
               (epoch+epoch0, total_steps))
         model.save('latest')
+        print('Test 1 saving the model at the end of epoch %d, iters %d' %
+              (epoch+epoch0, total_steps))
         model.save(epoch+epoch0)
+        print('Test 2 saving the model at the end of epoch %d, iters %d' %
+              (epoch+epoch0, total_steps))
 
     print('End of epoch %d / %d \t Time Taken: %d sec' %
           (epoch, opt.niter + opt.niter_decay, time.time() - epoch_start_time))
