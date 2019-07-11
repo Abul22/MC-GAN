@@ -109,6 +109,8 @@ class FlatData(object):
 
             # AA_ = t_topil(AA[0,0,:,:].unsqueeze_(0))
             # misc.imsave('./AA_0.png',AA_)            
+            print('Data loader __next__ AB_paths %s' %
+                    (AB_paths))
 
         return {'A': AA, 'A_paths': AB_paths, 'B':B, 'B_paths':AB_paths}
 
