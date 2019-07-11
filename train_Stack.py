@@ -37,6 +37,9 @@ visualizer = Visualizer(opt)
 print('saving the model at the end of epoch %d, iters %d' %
     (epoch0, total_steps))
 model.save(epoch0)
+print('Test0 After Save... saving the model at the end of epoch %d, iters %d' %
+    (epoch0, total_steps))
+
 
 for epoch in range(1, opt.niter + opt.niter_decay + 1):
     epoch_start_time = time.time()
