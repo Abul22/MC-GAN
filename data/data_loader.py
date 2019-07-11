@@ -99,6 +99,8 @@ class FlatData(object):
             else:
                 file_name = map(lambda x:x.split("/")[-1],AB_paths)
                 blank_ind = self.random_dict[file_name][0:int(self.blanks*A.size(3)/target_size)]
+		print('Data loader __next__ else_LN_1202-- filename: %s  ---- AB_paths %s' %
+                    (file_name, AB_paths))
 
             blank_ind = np.tile(range(target_size), len(blank_ind)) + np.repeat(blank_ind*target_size,target_size)
             AA.index_fill_(3,LongTensor(list(blank_ind)),1)
@@ -155,10 +157,12 @@ class Data(object):
             if not self.dict:
                 blank_ind = np.repeat(np.random.permutation(A.size(1)/n_rgb)[0:int(self.blanks*A.size(1)/n_rgb)],n_rgb)
             else:
-                file_name = map(lambda x:x.split("/")[-1],AB_paths)
+                file_name = map(lambda x:x.split("/")[-1],AB_paths)                
                 if len(file_name)>1:
                     raise Exception('batch size should be 1')
                 file_name=file_name[0]
+		print('Data loader __next__-- filename: %s' %
+                    (file_name))
                 blank_ind = self.random_dict[file_name][0:int(self.blanks*A.size(1)/n_rgb)]
 
             rgb_inds = np.tile(range(n_rgb),int(self.blanks*A.size(1)/n_rgb))
